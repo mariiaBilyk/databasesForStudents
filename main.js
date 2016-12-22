@@ -77,7 +77,8 @@ $('.clickable').on('click',function(){
 		$.getJSON( database, function(d) {
 		}).done(function (data){
 			$.each(data[rand].tables,function(i){
-				tablesCorrect.push(data[rand].tables[i].id);
+				if (data[rand].tables[i].isCorrect)
+					tablesCorrect.push(data[rand].tables[i].id);
 			});
 			$.each(data[rand].relations,function(i){
 				connectionsCorrect.push(data[rand].relations[i]);
@@ -119,11 +120,25 @@ $('.clickable').on('click',function(){
 				tablesPercentage = Math.floor((1 - ((tablesToCheck.length-tablesIntersect.length)
 				+(tablesCorrect.length-tablesIntersect.length)/tablesCorrect.length))*100);
 
-			console.log(tablesPercentage);
-			console.log(relationsPercentage);
-		});
+			var avg = (tablesPercentage + relationsPercentage) / 2;
 
-		
+			var degree = avg > 50 && avg < 71 ? "Задовільно"
+						: avg > 71 && avg < 88 ? "Добре"
+						: avg > 88 ? "Відмінно"
+						: "Незадовільно";
+
+			var result = {
+				tablesResult: tablesPercentage,
+				relationResult: relationsPercentage ,
+				degree: degree
+			};
+
+			$('#resultModal').modal();
+
+			$('.degree').text(result.degree);
+			$('.tables-result').text(result.tablesResult  + '%');
+			$('.relations-result').text(result.relationResult  + '%');
+		});	
 	}
 
 	$('.check').on('click',function(){
