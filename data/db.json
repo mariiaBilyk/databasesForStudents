@@ -1,0 +1,76 @@
+[
+	{
+		"text": " Намалюйте логічну модель бази даних для лікарні.",
+		"tables": [
+			{
+				"id": 1,
+				"title": "Employee",
+				"isCorrect": true
+			},
+			{
+				"id": 2,
+				"title": "Patient",
+				"isCorrect": true
+			},
+			{
+				"id": 4,
+				"title": "Hospital",
+				"isCorrect": true
+			},
+			{
+				"id": 3,
+				"title": "Nurce",
+				"isCorrect": false
+			}
+		],
+		"relations" : [
+			{
+				"tableLeftId": 1,
+				"tableRightId": 4,
+				"relationType": "NOne"
+			},
+			{
+				"tableLeftId": 2,
+				"tableRightId": 4,
+				"relationType": "NOne"
+			}
+		]
+	},
+	{
+		"text": " Намалюйте логічну модель бази даних для поштового сервісу.",
+		"tables": [
+			{
+				"id": 1,
+				"title": "Package",
+				"isCorrect": true
+			},
+			{
+				"id": 2,
+				"title": "Sender",
+				"isCorrect": true
+			},
+			{
+				"id": 3,
+				"title": "Receiver",
+				"isCorrect": true
+			},
+			{
+				"id": 4,
+				"title": "Letter",
+				"isCorrect": false
+			}
+		],
+		"relations" : [
+			{
+				"tableLeftId": 1,
+				"tableRightId": 3,
+				"relationType": "NOne"
+			},
+			{
+				"tableLeftId": 1,
+				"tableRightId": 2,
+				"relationType": "NOne"
+			}
+		]
+	}
+]
