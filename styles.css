@@ -1,0 +1,73 @@
+body{
+	position: relative;
+	max-width: 100%;
+}
+.panel-body span
+{
+    margin-top: 0px;
+    font-size: 15px;
+    margin-right: -12px;
+}
+
+.clickable {
+    background: rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+img{
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+    background-size: contain;
+}
+
+.database-area{
+	background-color: red;
+	display: block;
+	height: 400px;
+	padding: 15px;
+}
+.database-area ul {
+	height: 100%;
+}
+.database-area li{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+}
+.sidebar{
+	height: 400px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	margin-top: 75px;
+	padding: 15px;
+}
+.sidebar li{
+	/*position: relative;
+	left: 0;
+	top: 0;*/
+	height: 40px !important;
+}
+.arrow-connector {
+    stroke: black;
+}
+#m1{
+
+	position: absolute;
+	top:200px;
+	left: 50px;
+}
+#m2{
+	position: absolute;
+	top:100px;
+	left: 50px;
+}
+#m3{
+	position: absolute;
+	top:150px;
+	left: 150px;
+}
