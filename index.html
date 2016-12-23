@@ -41,7 +41,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Інструменти <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#">Нове завдання</a>
+                            <a href="#" onclick="location.reload();">Нове завдання</a>
                         </li>
                     </ul>
                 </li>
@@ -105,8 +105,8 @@
 			          <p>Збіжність із еталоном по відношення: <span class="relations-result"></span> </p>
 			        </div>
 			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default connect-btn">Еталон</button>
-			          <button type="button" class="btn btn-primary connect-btn">Наступне завдання</button>
+			          <button type="button" class="btn btn-default etalon-btn" onclick='getAnswer()'>Еталон</button>
+			          <button type="button" class="btn btn-primary next-btn" onclick='location.reload();'>Наступне завдання</button>
 			        </div>
 			      </div>
 			    </div>

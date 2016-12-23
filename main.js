@@ -155,9 +155,9 @@ $('.clickable').on('click',function(){
 			}
 		});
 	});
-	$( function reset(){
 
-	    $( ".drag" ).draggable({
+	var reset = function(){
+		 $( ".drag" ).draggable({
 	    	revert: "invalid",
 	    	helper: "clone",
 	    	appendTo: ".database-area",
@@ -209,4 +209,73 @@ $('.clickable').on('click',function(){
 	            reset();
             }
 	    });
+	}
+
+	$( function() {
+		reset();
 	});
+
+	function getAnswer(){	
+		var tablesCorrect = [];
+		var connectionsCorrect = [];
+		$('.database-area ul').empty();
+		$('#sortable').empty();
+		var img = $('<img>');
+		var defaultImg = "img/img.jpg";
+		img.attr('src', defaultImg);
+
+		$.getJSON( database, function(d) {
+		}).done(function (data){
+			$.each(data[rand].tables,function(i){
+				if (data[rand].tables[i].isCorrect){
+					// tablesCorrect.push(data[rand].tables[i].id);
+					var paragraph = $('<p>');
+
+					paragraph.text(data[rand].tables[i].title);
+					var li = $("<li class='ui-state-default ui-draggable ui-draggable-handle second'><img src='img/img.jpg'></li>")
+						.attr('id',data[rand].tables[i].id)
+						.attr('data-title',data[rand].tables[i].title)
+						.prepend(paragraph);
+					li.css({"left":100+100*i+"px","top":100+50*i});
+					$('.database-area ul').append(li);
+				}
+			});
+			$.each(data[rand].relations,function(i){
+				// connectionsCorrect.push(data[rand].relations[i]);
+				var leftText, rightText;
+				switch(data[rand].relations[i].relationType){
+					case "NOne": leftText="N", rightText="One"; break;
+					case "OneN": leftText="One", rightText="N"; break;
+					case "NN": leftText="N", rightText="N"; break;
+					case "OneOne": leftText="One", rightText="One"; break;
+				}
+				connect('#'+data[rand].relations[i].tableLeftId,'#'+data[rand].relations[i].tableRightId,leftText,rightText);
+			}
+			);
+		
+			$('#resultModal').modal('hide');
+			$('.check').hide();
+			
+			$( ".second" ).draggable({
+				helper: "original",
+				// containment: ".database-area",
+				drag : function recalculate() {
+		    		
+					var item = this;
+					connections.forEach(function(connection){
+						if(connection.elem1[0] === item || connection.elem2[0] === item) {
+							connection.calculate();
+						}
+					});
+				},
+				stop: function(){
+					var item = this;
+					connections.forEach(function(connection){
+						if(connection.elem1[0] === item || connection.elem2[0] === item) {
+							connection.calculate();
+						}
+					});
+				}
+		    });
+		});
+	}
