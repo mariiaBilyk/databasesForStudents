@@ -37,6 +37,113 @@
 		]
 	},
 	{
+		"text": " Намалюйте логічну модель бази даних для супермаркету.",
+		"tables": [
+			{
+				"id": 1,
+				"title": "Employee",
+				"isCorrect": true
+			},
+			{
+				"id": 2,
+				"title": "Client",
+				"isCorrect": true
+			},
+			{
+				"id": 3,
+				"title": "Order",
+				"isCorrect": true
+			},
+			{
+				"id": 4,
+				"title": "Manager",
+				"isCorrect": true
+			},
+			{
+				"id": 5,
+				"title": "Product",
+				"isCorrect": true
+			},
+			{
+				"id": 6,
+				"title": "ProductCategory",
+				"isCorrect": true
+			}
+		],
+		"relations" : [
+			{
+				"tableLeftId": 1,
+				"tableRightId": 4,
+				"relationType": "NOne"
+			},
+			{
+				"tableLeftId": 1,
+				"tableRightId": 4,
+				"relationType": "OneOne"
+			},
+			{
+				"tableLeftId": 5,
+				"tableRightId": 6,
+				"relationType": "NOne"
+			}
+			,
+			{
+				"tableLeftId": 3,
+				"tableRightId": 2,
+				"relationType": "NOne"
+			}
+			,
+			{
+				"tableLeftId": 3,
+				"tableRightId": 1,
+				"relationType": "NOne"
+			}
+			,
+			{
+				"tableLeftId": 3,
+				"tableRightId": 5,
+				"relationType": "NN"
+			}
+		]
+	},
+	{
+		"text": " Намалюйте логічну модель бази даних для програми Todo List.",
+		"tables": [
+			{
+				"id": 1,
+				"title": "Task",
+				"isCorrect": true
+			},
+			{
+				"id": 2,
+				"title": "User",
+				"isCorrect": true
+			},
+			{
+				"id": 3,
+				"title": "IsCompleted",
+				"isCorrect": false
+			},
+			{
+				"id": 4,
+				"title": "Project",
+				"isCorrect": true
+			}
+		],
+		"relations" : [
+			{
+				"tableLeftId": 1,
+				"tableRightId": 4,
+				"relationType": "OneN"
+			},
+			{
+				"tableLeftId": 4,
+				"tableRightId": 2,
+				"relationType": "OneN"
+			}
+		]
+	},
+	{
 		"text": " Намалюйте логічну модель бази даних для поштового сервісу.",
 		"tables": [
 			{
